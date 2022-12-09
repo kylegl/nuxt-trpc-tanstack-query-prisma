@@ -1,12 +1,11 @@
 <script setup lang="ts">
-const { $client } = useNuxtApp()
-const data = await $client.hello.query({ text: 'client' })
+const user = useUserStore()
 </script>
 
 <template>
   <div>
     <Logos mb-6 />
-    <p>{{data?.greeting}}</p>
+    <p>{{user.savedName}}</p>
     <Suspense>
       <PageView />
       <template #fallback>
@@ -15,6 +14,6 @@ const data = await $client.hello.query({ text: 'client' })
         </div>
       </template>
     </Suspense>
-    <InputEntry />
+    <Login />
   </div>
 </template>
