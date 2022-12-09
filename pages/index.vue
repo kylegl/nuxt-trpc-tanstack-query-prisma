@@ -1,6 +1,12 @@
+<script setup lang="ts">
+const { $client } = useNuxtApp()
+const data = await $client.hello.query({ text: 'client' })
+</script>
+
 <template>
   <div>
     <Logos mb-6 />
+    <p>{{data?.greeting}}</p>
     <Suspense>
       <PageView />
       <template #fallback>
