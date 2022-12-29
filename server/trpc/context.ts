@@ -1,6 +1,6 @@
 import type { H3Event } from 'h3'
-
 import type { inferAsyncReturnType } from '@trpc/server'
+import { prisma } from '../prisma/prisma'
 
 export async function createContext(event: H3Event) {
   // Create your context based on the request object
@@ -25,6 +25,7 @@ export async function createContext(event: H3Event) {
   const user = await getUserFromHeader()
   return {
     user,
+    prisma,
   }
 }
 export type Context = inferAsyncReturnType<typeof createContext>
