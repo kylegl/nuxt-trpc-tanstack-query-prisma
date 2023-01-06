@@ -6,6 +6,7 @@ specifiers:
   '@iconify-json/twemoji': ^1.1.5
   '@nuxtjs/color-mode': ^3.2.0
   '@pinia/nuxt': ^0.4.3
+  '@prisma/client': ^4.8.0
   '@trpc/client': ^10.4.3
   '@trpc/server': ^10.4.3
   '@unocss/nuxt': ^0.46.5
@@ -13,11 +14,13 @@ specifiers:
   eslint: ^8.27.0
   nuxt: ^3.0.0
   pinia: ^2.0.23
+  prisma: ^4.8.0
   trpc-nuxt: ^0.4.3
   typescript: ^4.9.3
   zod: ^3.19.1
 
 dependencies:
+  '@prisma/client': 4.8.0_prisma@4.8.0
   '@trpc/client': 10.4.3_@trpc+server@10.4.3
   '@trpc/server': 10.4.3
   trpc-nuxt: 0.4.3_pfoaturpu3trxzmpfmvoug3sta
@@ -34,6 +37,7 @@ devDependencies:
   eslint: 8.27.0
   nuxt: 3.0.0_e3uo4sehh4zr4i6m57mkkxxv7y
   pinia: 2.0.23_typescript@4.9.3
+  prisma: 4.8.0
   typescript: 4.9.3
 
 packages:
@@ -1053,6 +1057,28 @@ packages:
   /@polka/url/1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
+
+  /@prisma/client/4.8.0_prisma@4.8.0:
+    resolution: {integrity: sha512-Y1riB0p2W52kh3zgssP/YAhln3RjBFcJy3uwEiyjmU+TQYh6QTZDRFBo3JtBWuq2FyMOl1Rye8jxzUP+n0l5Cg==}
+    engines: {node: '>=14.17'}
+    requiresBuild: true
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+    dependencies:
+      '@prisma/engines-version': 4.8.0-61.d6e67a83f971b175a593ccc12e15c4a757f93ffe
+      prisma: 4.8.0
+    dev: false
+
+  /@prisma/engines-version/4.8.0-61.d6e67a83f971b175a593ccc12e15c4a757f93ffe:
+    resolution: {integrity: sha512-MHSOSexomRMom8QN4t7bu87wPPD+pa+hW9+71JnVcF3DqyyO/ycCLhRL1we3EojRpZxKvuyGho2REQsMCvxcJw==}
+    dev: false
+
+  /@prisma/engines/4.8.0:
+    resolution: {integrity: sha512-A1Asn2rxZMlLAj1HTyfaCv0VQrLUv034jVay05QlqZg1qiHPeA3/pGTfNMijbsMYCsGVxfWEJuaZZuNxXGMCrA==}
+    requiresBuild: true
 
   /@rollup/plugin-alias/4.0.2_rollup@2.79.1:
     resolution: {integrity: sha512-1hv7dBOZZwo3SEupxn4UA2N0EDThqSSS+wI1St1TNTBtOZvUchyIClyHcnDcjjrReTPZ47Faedrhblv4n+T5UQ==}
@@ -5646,6 +5672,14 @@ packages:
     resolution: {integrity: sha512-6UqkYefdogmzqAZWzJ7laYeJnaXDy2/J+ZqiiMtS7t7OfpXWTlaeGMwX8U6EFvPV/YWWEKRkS8hKS4k60WHTOg==}
     engines: {node: ^14.13.1 || >=16.0.0}
     dev: true
+
+  /prisma/4.8.0:
+    resolution: {integrity: sha512-DWIhxvxt8f4h6MDd35mz7BJff+fu7HItW3WPDIEpCR3RzcOWyiHBbLQW5/DOgmf+pRLTjwXQob7kuTZVYUAw5w==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@prisma/engines': 4.8.0
 
   /process-nextick-args/2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}

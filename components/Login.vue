@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import useGetUser from '~~/composables/useGetUser'
+import { useAddUser, useGetUser } from '~~/composables/useGetUser'
 
 const user = useUserStore()
 const username = $ref<string | undefined>()
-const isLoggedIn = $ref(false)
 
 async function go() {
-  const { data, pending, error } = await useGetUser(username)
+  if (typeof username !== 'string')
+    return
+
+  const { data, pending, error } = await useAddUser(username)
   if (!error.value) {
     const registeredUser = data.value?.username
 
