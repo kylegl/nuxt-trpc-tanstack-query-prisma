@@ -15,5 +15,6 @@ const user = useUserStore()
       </template>
     </Suspense>
     <Login />
+    <ListUsers />
   </div>
 </template>
