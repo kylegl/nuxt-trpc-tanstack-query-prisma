@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@prisma/client": "^4.8.1",
+    "@tanstack/vue-query": "^4.22.0",
     "@trpc/client": "^10.7.0",
     "@trpc/server": "^10.7.0",
     "trpc-nuxt": "^0.4.4",
