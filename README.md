@@ -18,7 +18,7 @@ pnpm i
 
 2. create a .env file at the root of your project. If you are using supabase follow this **[guide](https://supabase.com/docs/guides/integrations/prisma)**
 
-For more information about the postgres connection URL check out this **[guide](https://www.prisma.io/docs/concepts/database-connectors/postgresql)
+For more information about the postgres connection URL check out this **[guide](https://www.prisma.io/docs/concepts/database-connectors/postgresql)**
 ```
 DATABASE_URL = <your postgres connection url>
 ```
