@@ -10,8 +10,11 @@ export type GetUserInputShape = z.infer<typeof getUserInputShape>
 export const createUserInputShape = z.object({ username: z.string() })
 export type CreateUserInputShape = z.infer<typeof createUserInputShape>
 
+export const deleteUserInputShape = z.string()
+export type DeleteUserInputShape = z.infer<typeof deleteUserInputShape>
+
 export const userRouter = router({
-  getUser: publicProcedure
+  getById: publicProcedure
     .input(getUserInputShape)
     .query(({ input }) => ({
       username: input?.username ?? 'anonymous',
@@ -30,5 +33,18 @@ export const userRouter = router({
     .query(async () => {
       const users = await prisma.user.findMany()
       return users
+    }),
+  delete: publicProcedure
+    .input(deleteUserInputShape)
+    .mutation(async ({ input }) => {
+      const res = await prisma.user.delete({ where: { username: input } })
+
+      return res
+    }),
+  deleteMany: publicProcedure
+    .mutation(async () => {
+      const res = await prisma.user.deleteMany()
+
+      return res
     }),
 })
