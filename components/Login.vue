@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useAddUser, useGetUser, useTestAddUser } from '~~/composables/useGetUser'
+import { useAddUser, useGetUser } from '~~/composables/userQueries'
 
 const user = useUserStore()
 const username = $ref<string | undefined>()
-const addUser = useTestAddUser()
+const addUser = useAddUser()
 
 async function go() {
   if (typeof username !== 'string')

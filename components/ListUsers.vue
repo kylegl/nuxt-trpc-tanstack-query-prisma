@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useTestListUsers } from '~~/composables/useGetUser'
+import { useListUsers } from '~~/composables/userQueries'
 
-const { data: res } = $(useTestListUsers())
+const { data: res } = $(useListUsers())
 const revealList = $ref(false)
 const toggleList = useToggle($$(revealList))
 
