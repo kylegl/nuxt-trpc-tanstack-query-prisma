@@ -1,21 +1,19 @@
 <script setup lang="ts">
-import type { User } from '@prisma/client'
+import { useListUsers } from '~~/composables/userQueries'
 
-let users = $ref<User[] | null>()
+const { data: res } = $(useListUsers())
+const revealList = $ref(false)
+const toggleList = useToggle($$(revealList))
 
-async function handleClick() {
-  const { data, error } = await useListUsers()
-
-  users = data.value
-}
+const users = $computed(() => res?.data)
 </script>
 
 <template>
   <div>
-      <button m-3 text-sm btn @click="handleClick">
-        List Users
-      </button>
-    <div v-if="users">
+    <button m-3 text-sm btn @click="toggleList()">
+      List Users
+    </button>
+    <div v-if="revealList">
       <ul>
         <li v-for="user in users" :key="user.id">
           {{ user.username }}

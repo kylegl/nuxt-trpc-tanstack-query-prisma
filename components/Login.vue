@@ -1,20 +1,17 @@
 <script setup lang="ts">
-import { useAddUser, useGetUser } from '~~/composables/useGetUser'
+import { useAddUser, useGetUser } from '~~/composables/userQueries'
 
 const user = useUserStore()
 const username = $ref<string | undefined>()
+const addUser = useAddUser()
 
 async function go() {
   if (typeof username !== 'string')
     return
 
-  const { data, pending, error } = await useAddUser(username)
-  if (!error.value) {
-    const registeredUser = data.value?.username
+  addUser.mutate(username)
 
-    if (registeredUser)
-      user.setNewName(registeredUser)
-  }
+  user.setNewName(username)
 }
 </script>
 

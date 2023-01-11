@@ -7,6 +7,7 @@ specifiers:
   '@nuxtjs/color-mode': ^3.2.0
   '@pinia/nuxt': ^0.4.3
   '@prisma/client': ^4.8.1
+  '@tanstack/vue-query': ^4.22.0
   '@trpc/client': ^10.7.0
   '@trpc/server': ^10.7.0
   '@unocss/nuxt': ^0.46.5
@@ -22,6 +23,7 @@ specifiers:
 
 dependencies:
   '@prisma/client': 4.8.1_prisma@4.8.1
+  '@tanstack/vue-query': 4.22.0
   '@trpc/client': 10.7.0_@trpc+server@10.7.0
   '@trpc/server': 10.7.0
   trpc-nuxt: 0.4.4_swjpqe7jnsgxhe3xt25xrickxq
@@ -1222,6 +1224,32 @@ packages:
       rollup: 2.79.1
     dev: true
 
+  /@tanstack/match-sorter-utils/8.7.6:
+    resolution: {integrity: sha512-2AMpRiA6QivHOUiBpQAVxjiHAA68Ei23ZUMNaRJrN6omWiSFLoYrxGcT6BXtuzp0Jw4h6HZCmGGIM/gbwebO2A==}
+    engines: {node: '>=12'}
+    dependencies:
+      remove-accents: 0.4.2
+    dev: false
+
+  /@tanstack/query-core/4.22.0:
+    resolution: {integrity: sha512-OeLyBKBQoT265f5G9biReijeP8mBxNFwY7ZUu1dKL+YzqpG5q5z7J/N1eT8aWyKuhyDTiUHuKm5l+oIVzbtrjw==}
+    dev: false
+
+  /@tanstack/vue-query/4.22.0:
+    resolution: {integrity: sha512-G+b1sumfG/YHRvFqVGUJFP+QZVlImsazXhjy/xZ0rD1rCI9fSM8FMaACSHH323EKnkcor7bBjzQqCKyflyk3Ug==}
+    peerDependencies:
+      '@vue/composition-api': ^1.1.2
+      vue: ^2.5.0 || ^3.0.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      '@tanstack/match-sorter-utils': 8.7.6
+      '@tanstack/query-core': 4.22.0
+      '@vue/devtools-api': 6.4.5
+      vue-demi: 0.13.11
+    dev: false
+
   /@trpc/client/10.7.0_@trpc+server@10.7.0:
     resolution: {integrity: sha512-xCPc2hp37REJst6TXMkJvdc85CHvxpVY6YVdZIjl7uCYoQcrstwy8AWi7ElB3x7e19Cweke+9CAaUXKwAE1AKQ==}
     peerDependencies:
@@ -1744,7 +1772,6 @@ packages:
 
   /@vue/devtools-api/6.4.5:
     resolution: {integrity: sha512-JD5fcdIuFxU4fQyXUu3w2KpAJHzTVdN+p4iOX2lMWSHMOoQdMAcpFLZzm9Z/2nmsoZ1a96QEhZ26e50xLBsgOQ==}
-    dev: true
 
   /@vue/reactivity-transform/3.2.45:
     resolution: {integrity: sha512-BHVmzYAvM7vcU5WmuYqXpwaBHjsS8T63jlKGWVtHxAHIoMIlmaMyurUSEs1Zcg46M4AYT5MtB1U274/2aNzjJQ==}
@@ -5833,6 +5860,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /remove-accents/0.4.2:
+    resolution: {integrity: sha512-7pXIJqJOq5tFgG1A2Zxti3Ht8jJF337m4sowbuHsW30ZnkQFnDzy9qBNhgzX8ZLW4+UBcXiiR7SwR6pokHsxiA==}
+    dev: false
+
   /require-directory/2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
     engines: {node: '>=0.10.0'}
@@ -6949,7 +6980,6 @@ packages:
     peerDependenciesMeta:
       '@vue/composition-api':
         optional: true
-    dev: true
 
   /vue-devtools-stub/0.1.0:
     resolution: {integrity: sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==}

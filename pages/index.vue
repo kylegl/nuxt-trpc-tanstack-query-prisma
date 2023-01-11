@@ -5,7 +5,7 @@ const user = useUserStore()
 <template>
   <div>
     <Logos mb-6 />
-    <p>{{user.savedName}}</p>
+    <p>{{ user.savedName }}</p>
     <Suspense>
       <PageView />
       <template #fallback>
@@ -15,6 +15,9 @@ const user = useUserStore()
       </template>
     </Suspense>
     <Login />
-    <ListUsers />
+    <div flex items-center justify-center gap2>
+      <ListUsers />
+      <DeleteUsers />
+    </div>
   </div>
 </template>
