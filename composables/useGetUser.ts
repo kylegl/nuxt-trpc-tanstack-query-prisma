@@ -1,3 +1,4 @@
+import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import type { TRPCClientError } from '@trpc/client'
 import type { inferRouterOutputs } from '@trpc/server'
 import type { AppRouter } from '~~/server/trpc/routers/appRouter'
@@ -21,3 +22,18 @@ export function useListUsers() {
 
   return $client.user.list.useQuery()
 }
+
+export function useTestAddUser() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (username: string) => useAddUser(username),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['user'] })
+    },
+  })
+}
+export function useTestListUsers() {
+  const { data, refetch } = useQuery(['user'], async () => useListUsers())
+  return { data, refetch }
+}
+
