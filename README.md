@@ -1,4 +1,4 @@
-# Fullstack starter template for Nuxt 3 (with Vitesse), TRPC, Tanstack Vue Query & Prisma, and Postgres. There is a docker-compose file for a postgres db for dev. I am using supabase for a cloud hosting option
+Fullstack starter template for **Nuxt 3 (with Vitesse)**, **TRPC**, **Tanstack Vue Query**, **Prisma**, and **Postgres**. There is a docker-compose file for a postgres db for dev. I am using supabase for a cloud hosting option
 
 - **[Vitesse for Nuxt 3](https://github.com/antfu/vitesse-nuxt3)**
 - **[tRPC-Nuxt](https://github.com/wobsoriano/trpc-nuxt)**
