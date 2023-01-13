@@ -31,7 +31,7 @@ export function useAddUser() {
 export function useListUsers() {
   const { $client } = useNuxtApp()
 
-  const queryFn = async () => useAsyncData<ListUserOutput, ErrorOutput>(() => $client.user.list.query())
+  const queryFn = async () => $client.user.list.useQuery()
   return useQuery({ queryKey: ['user', 'list'], queryFn })
 }
 

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useAddUser, useGetUser } from '~~/composables/userQueries'
+const config = useRuntimeConfig()
 
 const user = useUserStore()
 const username = $ref<string | undefined>()

@@ -19,5 +19,6 @@ const user = useUserStore()
       <ListUsers />
       <DeleteUsers />
     </div>
+    <TestServerFn />
   </div>
 </template>
