@@ -4,7 +4,7 @@
 
 [build]
   publish = "dist"
-  command = "npx pnpm i --store=node_modules/.pnpm-store && prisma generate && npx pnpm run build"
+  command = "pnpm build"
 
 [[redirects]]
   from = "/*"
