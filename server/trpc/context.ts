@@ -1,6 +1,6 @@
 import type { H3Event } from 'h3'
 import type { inferAsyncReturnType } from '@trpc/server'
-import { prisma } from '../prisma/prisma'
+import { prisma } from '~~/server/prisma/prisma'
 
 export async function createContext(event: H3Event) {
   // Create your context based on the request object
