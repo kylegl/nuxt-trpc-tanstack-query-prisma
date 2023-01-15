@@ -12,6 +12,12 @@ export default defineNuxtConfig({
     reactivityTransform: true,
     inlineSSRStyles: false,
   },
+  runtimeConfig: {
+    public: {
+      nodeEnv: process.env.NODE_ENV,
+      baseUrl: process.env.NODE_ENV === 'production' ? process.env.URL : 'http://localhost:3000',
+    },
+  },
   css: [
     '@unocss/reset/tailwind.css',
   ],

@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { publicProcedure, router } from '../trpc'
+import { publicProcedure, router } from '~~/server/trpc/trpc'
 import { prisma } from '~~/server/prisma/prisma'
 
 const getUserInputShape = z.object({

@@ -1,5 +1,5 @@
 import { initTRPC } from '@trpc/server'
-import type { Context } from './context'
+import type { Context } from '~~/server/trpc/context'
 
 // Avoid exporting the entire t-object since it's not very
 // descriptive and can be confusing to newcomers used to t
