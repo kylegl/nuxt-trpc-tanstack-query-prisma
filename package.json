@@ -1,8 +1,7 @@
 {
   "private": true,
-  "packageManager": "pnpm@7.9.0",
   "scripts": {
-    "build": "prisma generate && nuxi build",
+    "build": "nuxi build",
     "dev": "nuxi dev",
     "start": "node .output/server/index.mjs",
     "lint": "eslint .",
@@ -28,7 +27,7 @@
     "dotenv": "^16.0.3",
     "eslint": "^8.27.0",
     "netlify-cli": "^12.7.2",
-    "nuxt": "3.0.0-rc.4",
+    "nuxt": "3.0.0-rc.14",
     "pinia": "^2.0.23",
     "prisma": "^4.8.1",
     "typescript": "^4.9.3"
