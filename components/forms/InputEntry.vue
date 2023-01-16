@@ -23,13 +23,12 @@ function handleSubmit() {
       @keydown.enter="handleSubmit"
     >
     <div>
-      <button
-        m-3 text-sm btn
+      <Btn
         :disabled="!val"
         @click="handleSubmit"
       >
         GO
-      </button>
+      </Btn>
     </div>
   </div>
 </template>

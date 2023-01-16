@@ -1,11 +1,10 @@
 <script setup lang="ts">
-const user = useUserStore()
+
 </script>
 
 <template>
   <div>
     <Logos mb-6 />
-    <p>{{ user.savedName }}</p>
     <Suspense>
       <PageView />
       <template #fallback>
