@@ -12,7 +12,7 @@ type ErrorOutput = TRPCClientError<AppRouter>
 
 export function useGetUser(username?: string) {
   const { $client } = useNuxtApp()
-  const queryFn = async () => $client.user.getById.useQuery({ username })
+  const queryFn = async () => $client.user.getById.useQuery({ name: username })
 
   return useQuery({ queryKey: ['user', 'byId'], queryFn })
 }

@@ -3,7 +3,7 @@ import { publicProcedure, router } from '~~/server/trpc/trpc'
 import { prisma } from '~~/server/prisma/prisma'
 
 const getUserInputShape = z.object({
-  username: z.string().optional(),
+  name: z.string().optional(),
 })
 export type GetUserInputShape = z.infer<typeof getUserInputShape>
 
@@ -17,8 +17,8 @@ export const userRouter = router({
   getById: publicProcedure
     .input(getUserInputShape)
     .query(({ input }) => ({
-      username: input?.username ?? 'anonymous',
-      isUser: !!input?.username,
+      username: input?.name ?? 'anonymous',
+      isUser: !!input?.name,
     })),
   add: publicProcedure
     .input(createUserInputShape)
