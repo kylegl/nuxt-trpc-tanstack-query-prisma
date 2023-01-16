@@ -1,4 +1,6 @@
-Fullstack starter template for **Nuxt 3 (with Vitesse)**, **TRPC**, **Tanstack Vue Query**, **Prisma**, and **Postgres**. There is a docker-compose file for a postgres db for dev. I am using supabase for a cloud hosting option
+ ## Stack
+
+Fullstack starter template for **Nuxt 3 (with Vitesse)**, **TRPC**, **Tanstack Vue Query**, **Prisma**, and **Postgres**. There is a docker-compose file for a postgres db for dev. I am using supabase for a cloud hosting option. Tested on Netlify and Vercel.
 
 - **[Vitesse for Nuxt 3](https://github.com/antfu/vitesse-nuxt3)**
 - **[tRPC-Nuxt](https://github.com/wobsoriano/trpc-nuxt)**
@@ -6,13 +8,13 @@ Fullstack starter template for **Nuxt 3 (with Vitesse)**, **TRPC**, **Tanstack V
 - **[Prisma](https://www.prisma.io/)**
 - **[supabase](https://supabase.com/)**
 
-## Instructions
+## Get Started
 
 1. Clone the project
 
 ```
-npx degit kylegl/nuxt-trpc my-nuxt3-trpc-app
-cd my-nuxt3-trpc-app
+npx degit kylegl/nuxt-trpc-tanstack-query-prisma my-nuxt3-app
+cd my-nuxt3-app
 pnpm i
 ```
 
@@ -29,7 +31,20 @@ docker-compose up -d
 ```
 
 4. Sync the prisma schema with postgres.
+`pnpm prisma db pull`
+
+`pnpm prisma generate`
+
 `pnpm prisma migrate dev --name init`
 
 5. Start Nuxt dev server
 `pnpm dev`
+
+
+## Hosting on Netlify or Vercel
+
+Follow setup docs and link your repo with hosting service. The only way I got it to work was building the project on Netlify or Vercel. I couldn't build locally with Netlify CLI and deploy. For example, this **DID NOT WORK** `pnpm netlify deploy --build`
+
+Make sure to add the DATABASE_URL env var to the ui of your hosting service. This is how the env var is made available to your serverless functions.
+
+The URL is different from the dev url, see the example env file for more info.
