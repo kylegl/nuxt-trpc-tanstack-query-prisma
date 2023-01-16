@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import type { TRPCClientError } from '@trpc/client'
 import type { inferRouterOutputs } from '@trpc/server'
-import type { AppRouter } from '~~/server/trpc/routers/appRouter'
+import type { AppRouter } from '~~/server/trpc/router/appRouter'
 
 type RouterOutput = inferRouterOutputs<AppRouter>
 type CreateUserOutput = RouterOutput['user']['add']
