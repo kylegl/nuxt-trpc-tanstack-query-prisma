@@ -13,11 +13,9 @@
         </div>
       </template>
     </Suspense>
-    <Login />
-    <div flex items-center justify-center gap2>
-      <ListUsers />
-      <DeleteUsers />
+    <div flex="~ col" items-center justify-center gap2>
+      <AddPost />
+      <PostsContainer />
     </div>
-    <TestServerFn />
   </div>
 </template>
