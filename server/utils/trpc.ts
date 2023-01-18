@@ -12,6 +12,8 @@ interface CombinedDataTransformer {
   output: DataTransformer
 }
 
+// TODO this is not working right, look into the old way of doing it
+// with devalue and figure out the new syntax
 export const transformer: CombinedDataTransformer = {
   input: superjson,
   output: {
