@@ -8,26 +8,30 @@ specifiers:
   '@pinia/nuxt': ^0.4.3
   '@prisma/client': ^4.9.0
   '@tanstack/vue-query': ^4.22.0
-  '@trpc/client': ^10.7.0
-  '@trpc/server': ^10.7.0
+  '@trpc/client': ^10.9.0
+  '@trpc/server': ^10.9.0
   '@unocss/nuxt': ^0.46.5
   '@vueuse/nuxt': ^9.5.0
+  devalue: ^4.2.2
   dotenv: ^16.0.3
   eslint: ^8.27.0
   netlify-cli: ^12.7.2
   nuxt: 3.0.0-rc.14
   pinia: ^2.0.23
   prisma: ^4.9.0
-  trpc-nuxt: ^0.4.4
+  superjson: ^1.12.2
+  trpc-nuxt: ^0.5.0
   typescript: ^4.9.3
   zod: ^3.20.2
 
 dependencies:
   '@prisma/client': 4.9.0_prisma@4.9.0
   '@tanstack/vue-query': 4.22.0
-  '@trpc/client': 10.7.0_@trpc+server@10.7.0
-  '@trpc/server': 10.7.0
-  trpc-nuxt: 0.4.4_swjpqe7jnsgxhe3xt25xrickxq
+  '@trpc/client': 10.9.0_@trpc+server@10.9.0
+  '@trpc/server': 10.9.0
+  devalue: 4.2.2
+  superjson: 1.12.2
+  trpc-nuxt: 0.5.0_2zpqbmooshoeqfe2ml35ze43ai
   zod: 3.20.2
 
 devDependencies:
@@ -2458,16 +2462,16 @@ packages:
       vue-demi: 0.13.11
     dev: false
 
-  /@trpc/client/10.7.0_@trpc+server@10.7.0:
-    resolution: {integrity: sha512-xCPc2hp37REJst6TXMkJvdc85CHvxpVY6YVdZIjl7uCYoQcrstwy8AWi7ElB3x7e19Cweke+9CAaUXKwAE1AKQ==}
+  /@trpc/client/10.9.0_@trpc+server@10.9.0:
+    resolution: {integrity: sha512-id6318qpgqllNOuBp7nuciXFPXCe+zae5d4r1hze6Eyp5fFFNO58TqA+4Q44KIcHgpfWyW2egs6iPeql3PrdKA==}
     peerDependencies:
-      '@trpc/server': 10.7.0
+      '@trpc/server': 10.9.0
     dependencies:
-      '@trpc/server': 10.7.0
+      '@trpc/server': 10.9.0
     dev: false
 
-  /@trpc/server/10.7.0:
-    resolution: {integrity: sha512-kFhlqhzZt5PwVRRDci8oJKMMFGjjq9189stT6bvS9xuuLjRzzwhMShRi99sm/jqhdjWmlXyO3Ncx0rnghUvH+w==}
+  /@trpc/server/10.9.0:
+    resolution: {integrity: sha512-5psyZgbvy29pJND32hwkWTMbv6s86IbsPOeDopsgNF0VegZT6Dsijmb7Ub/TDhuJVQVq5u4u5briMXi3SxmBkw==}
     dev: false
 
   /@trysound/sax/0.2.0:
@@ -4682,6 +4686,13 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
+  /copy-anything/3.0.3:
+    resolution: {integrity: sha512-fpW2W/BqEzqPp29QS+MwwfisHCQZtiduTe/m8idFo0xbti9fIZ2WVhAsCv4ggFVH3AgCkVdpoOCtQC6gBrdhjw==}
+    engines: {node: '>=12.13'}
+    dependencies:
+      is-what: 4.1.8
+    dev: false
+
   /copy-descriptor/0.1.1:
     resolution: {integrity: sha512-XgZ0pFcakEUlbwQEVNg3+QAis1FyTL3Qel9FYy8pSkQqoG3PNoT0bOCQtOXcOkur21r2Eq2kI+IE+gsmAEVlYw==}
     engines: {node: '>=0.10.0'}
@@ -5315,6 +5326,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /devalue/4.2.2:
+    resolution: {integrity: sha512-Pkwd8qrI9O20VJ14fBNHu+on99toTNZFbgWRpZbC0zbDXpnE2WHYcrC1fHhMsF/3Ee+2yaW7vEujAT7fCYgqrA==}
+    dev: false
 
   /diff/4.0.2:
     resolution: {integrity: sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==}
@@ -8289,6 +8304,11 @@ packages:
       call-bind: 1.0.2
     dev: true
 
+  /is-what/4.1.8:
+    resolution: {integrity: sha512-yq8gMao5upkPoGEU9LsB2P+K3Kt8Q3fQFCGyNCWOAnJAMzEXVV9drYb0TXr42TTliLLhKIBvulgAXgtLLnwzGA==}
+    engines: {node: '>=12.13'}
+    dev: false
+
   /is-windows/1.0.2:
     resolution: {integrity: sha512-eXK1UInq2bPmjyX6e3VHIzMLobc4J94i4AWn+Hpq3OU5KkrRC96OAcR3PRJ/pGu6m8TRnBHP9dkXQVsT/COVIA==}
     engines: {node: '>=0.10.0'}
@@ -9336,7 +9356,7 @@ packages:
       acorn: 8.8.1
       pathe: 1.0.0
       pkg-types: 1.0.1
-      ufo: 1.0.0
+      ufo: 1.0.1
     dev: true
 
   /mlly/1.1.0:
@@ -10064,7 +10084,7 @@ packages:
     dependencies:
       destr: 1.2.2
       node-fetch-native: 1.0.1
-      ufo: 1.0.0
+      ufo: 1.0.1
 
   /ohash/1.0.0:
     resolution: {integrity: sha512-kxSyzq6tt+6EE/xCnD1XaFhCCjUNUaz3X30rJp6mnjGLXAAvuPFqohMdv0aScWzajR45C29HyBaXZ8jXBwnh9A==}
@@ -12373,6 +12393,13 @@ packages:
       postcss-selector-parser: 6.0.11
     dev: true
 
+  /superjson/1.12.2:
+    resolution: {integrity: sha512-ugvUo9/WmvWOjstornQhsN/sR9mnGtWGYeTxFuqLb4AiT4QdUavjGFRALCPKWWnAiUJ4HTpytj5e0t5HoMRkXg==}
+    engines: {node: '>=10'}
+    dependencies:
+      copy-anything: 3.0.3
+    dev: false
+
   /supports-color/2.0.0:
     resolution: {integrity: sha512-KKNVtd6pCYgPIKU4cp2733HWYCpplQhddZLBUryaAHou723x+FRzQ5Df824Fj+IyyuiQTRoub4SnIFfIcrp70g==}
     engines: {node: '>=0.8.0'}
@@ -12722,19 +12749,19 @@ packages:
     resolution: {integrity: sha512-XrHUvV5HpdLmIj4uVMxHggLbFSZYIn7HEWsqePZcI50pco+MPqJ50wMGY794X7AOOhxOBAjbkqfAbEe/QMp2Lw==}
     dev: true
 
-  /trpc-nuxt/0.4.4_swjpqe7jnsgxhe3xt25xrickxq:
-    resolution: {integrity: sha512-nCJ4O4u+dlj8iCOYWgfeQLutc0Nz04VtIYK+XAa3kc4XXksSm0Ty7PuW9q6WOWukTiDIxC/fYdBwtx1e5F7Iyg==}
+  /trpc-nuxt/0.5.0_2zpqbmooshoeqfe2ml35ze43ai:
+    resolution: {integrity: sha512-PZpmwc2QYkC1CWxGo3brFwou88zoP6cB9+GmlIffJJLKCmTY7XzIfarNxSbCocdeymJjMpcL/94t9kJm85/eTQ==}
     engines: {node: ^16.13.0 || ^18.12.0}
     peerDependencies:
-      '@trpc/client': ^10.0.0
-      '@trpc/server': ^10.0.0
+      '@trpc/client': ^10.8.0
+      '@trpc/server': ^10.8.0
     dependencies:
-      '@trpc/client': 10.7.0_@trpc+server@10.7.0
-      '@trpc/server': 10.7.0
+      '@trpc/client': 10.9.0_@trpc+server@10.9.0
+      '@trpc/server': 10.9.0
       h3: 1.0.2
       ofetch: 1.0.0
       ohash: 1.0.0
-      ufo: 1.0.0
+      ufo: 1.0.1
     dev: false
 
   /ts-node/10.9.1_typescript@4.9.3:
@@ -12876,9 +12903,6 @@ packages:
   /ufo/0.8.6:
     resolution: {integrity: sha512-fk6CmUgwKCfX79EzcDQQpSCMxrHstvbLswFChHS0Vump+kFkw7nJBfTZoC1j0bOGoY9I7R3n2DGek5ajbcYnOw==}
     dev: true
-
-  /ufo/1.0.0:
-    resolution: {integrity: sha512-DRty0ZBNlJ2R59y4mEupJRKLbkLQsc4qtxjpQv78AwEDuBkaUogMc2LkeqW3HddFlw6NwnXYfdThEZOiNgkmmQ==}
 
   /ufo/1.0.1:
     resolution: {integrity: sha512-boAm74ubXHY7KJQZLlXrtMz52qFvpsbOxDcZOnw/Wf+LS4Mmyu7JxmzD4tDLtUQtmZECypJ0FrCz4QIe6dvKRA==}
