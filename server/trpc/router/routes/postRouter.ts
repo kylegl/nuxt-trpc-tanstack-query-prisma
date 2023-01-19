@@ -25,9 +25,10 @@ export const postRouter = router({
   delete: publicProcedure
     .input(deletePostInputShape)
     .mutation(async ({ input }) => {
-      const res = await prisma.post.delete({ where: { id: input.id } })
+      const { id } = input
+      await prisma.post.delete({ where: { id } })
 
-      return res
+      return id
     }),
   list: publicProcedure
     .query(async () => {

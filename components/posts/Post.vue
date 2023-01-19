@@ -3,7 +3,7 @@ const { title, content, createdAt, id } = defineProps<{
   title?: string
   content?: string
   createdAt: Date
-  id: number
+  id: number | string
 }>()
 
 let deleted = $ref(false)
@@ -11,16 +11,17 @@ let deleted = $ref(false)
 const deletePost = useDeletePost()
 function handleDeletePost() {
   deleted = true
-  console.log('id', id)
-  deletePost.mutate({ id })
+  if (typeof id === 'number')
+    deletePost.mutate({ id })
 }
 
 const timeAgo = useTimeAgo(createdAt)
 </script>
 
 <template>
-  <div flex gap2 p2 border="~ rounded gray-200 dark:gray-700" min-w-md max-w-xl
-  :class="[deleted ? 'op30' : 'op100']"
+  <div
+    flex gap2 p2 border="~ rounded gray-200 dark:gray-700" min-w-md max-w-xl
+    :class="[deleted ? 'op30' : 'op100']"
   >
     <div flex="~ col">
       <Icon i-carbon:user-avatar-filled text-3xl text-teal-600 />

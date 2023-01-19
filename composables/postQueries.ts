@@ -17,6 +17,19 @@ export function useAddPost() {
 
   return useMutation({
     mutationFn,
+    onMutate: async (input) => {
+      await vueQueryClient.cancelQueries(['post', 'list'])
+      const previousPosts = vueQueryClient.getQueryData(['post', 'list'])
+      const newPost = {
+        id: '__temp__id',
+        createdAt: new Date(),
+        ...input,
+      }
+
+      vueQueryClient.setQueryData(['post', 'list'], old => ({ data: [...old.data.value, newPost] }))
+
+      return { previousPosts }
+    },
     onSuccess: () => vueQueryClient.invalidateQueries({ queryKey: ['post', 'list'] }),
   })
 }
@@ -33,7 +46,7 @@ export function useDeletePost() {
   const vueQueryClient = useQueryClient()
 
   const mutationFn = async (input: DeletePostInput) => {
-    useAsyncData<DeletePostOutput, ErrorOutput>
+    return useAsyncData<DeletePostOutput, ErrorOutput>
     (
       () => $client.post.delete.mutate(input),
     )
@@ -41,10 +54,21 @@ export function useDeletePost() {
 
   return useMutation({
     mutationFn,
-    onSuccess: (data, variables) => vueQueryClient.setQueryData(
-      ['post', 'list', variables.id],
-      oldData => console.log('old data', oldData)),
+    onMutate: async ({ id }) => {
+      await vueQueryClient.cancelQueries(['post', 'list'])
+      const previousPosts = vueQueryClient.getQueryData(['post', 'list'])
+
+      vueQueryClient.setQueryData(['post', 'list'], (old) => {
+        const filteredData = old.data.value.filter(post => post.id !== id)
+        return { data: filteredData }
+      })
+
+      return { previousPosts }
+    },
+    onError: (err, { id }, context) => {
+      vueQueryClient.setQueryData(['post', 'list'], context?.previousPosts)
+      return err
+    },
+    onSettled: () => vueQueryClient.invalidateQueries({ queryKey: ['post', 'list'] }),
   })
 }
-
-// TODO optimistically set querydata because refetch ain't working. see https://stackoverflow.com/questions/73970791/why-my-react-query-does-not-instant-update-ui-after-delete
