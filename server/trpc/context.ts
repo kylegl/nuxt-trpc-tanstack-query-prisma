@@ -15,7 +15,6 @@ export async function createContext(event: H3Event) {
   //   }
   //   return null
   // }
-  
 
   const username = getRequestHeader(event, 'username')
 

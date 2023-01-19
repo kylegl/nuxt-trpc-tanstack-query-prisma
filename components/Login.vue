@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import { useAddUser, useGetUser } from '~~/composables/userQueries'
-const config = useRuntimeConfig()
-
-const user = useUserStore()
 const username = $ref<string | undefined>()
 const addUser = useAddUser()
 
@@ -11,8 +7,6 @@ async function go() {
     return
 
   addUser.mutate(username)
-
-  user.setNewName(username)
 }
 </script>
 

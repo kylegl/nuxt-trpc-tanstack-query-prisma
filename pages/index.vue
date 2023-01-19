@@ -1,11 +1,10 @@
 <script setup lang="ts">
-const user = useUserStore()
+
 </script>
 
 <template>
-  <div>
+  <div flex="~ col" gap4 justify-center items-center>
     <Logos mb-6 />
-    <p>{{ user.savedName }}</p>
     <Suspense>
       <PageView />
       <template #fallback>
@@ -14,11 +13,9 @@ const user = useUserStore()
         </div>
       </template>
     </Suspense>
-    <Login />
-    <div flex items-center justify-center gap2>
-      <ListUsers />
-      <DeleteUsers />
+    <div flex="~ col" items-center justify-center gap2>
+      <AddPost p4 rounded-md border="~ rounded gray-200 dark:gray-700" />
+      <PostsContainer />
     </div>
-    <TestServerFn />
   </div>
 </template>

@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import type { TRPCClientError } from '@trpc/client'
 import type { inferRouterOutputs } from '@trpc/server'
-import type { AppRouter } from '~~/server/trpc/routers/appRouter'
+import type { AppRouter } from '~~/server/trpc/router/appRouter'
 
 type RouterOutput = inferRouterOutputs<AppRouter>
 type CreateUserOutput = RouterOutput['user']['add']
@@ -12,7 +12,7 @@ type ErrorOutput = TRPCClientError<AppRouter>
 
 export function useGetUser(username?: string) {
   const { $client } = useNuxtApp()
-  const queryFn = async () => $client.user.getById.useQuery({ username })
+  const queryFn = async () => $client.user.getById.useQuery({ name: username })
 
   return useQuery({ queryKey: ['user', 'byId'], queryFn })
 }
@@ -58,6 +58,4 @@ export function useDeleteManyUsers() {
     onSuccess: () => vueQueryClient.invalidateQueries({ queryKey: ['user', 'list'] }),
   })
 }
-
-// TODO basically vue-queries 'useQuery' needs to be a wrapper around trpc-nuxt's query fn. It will use the same techniques trpc-nuxt uses to wrap trpc's queryFn
 

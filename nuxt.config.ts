@@ -2,6 +2,12 @@ export default defineNuxtConfig({
   build: {
     transpile: ['trpc-nuxt'],
   },
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false,
+    },
+  ],
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',
