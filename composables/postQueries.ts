@@ -41,6 +41,10 @@ export function useDeletePost() {
 
   return useMutation({
     mutationFn,
-    onSuccess: () => vueQueryClient.invalidateQueries({ queryKey: ['post', 'list'] }),
+    onSuccess: (data, variables) => vueQueryClient.setQueryData(
+      ['post', 'list', variables.id],
+      oldData => console.log('old data', oldData)),
   })
 }
+
+// TODO optimistically set querydata because refetch ain't working. see https://stackoverflow.com/questions/73970791/why-my-react-query-does-not-instant-update-ui-after-delete
