@@ -59,5 +59,3 @@ export function useDeleteManyUsers() {
   })
 }
 
-// TODO basically vue-queries 'useQuery' needs to be a wrapper around trpc-nuxt's query fn. It will use the same techniques trpc-nuxt uses to wrap trpc's queryFn
-
