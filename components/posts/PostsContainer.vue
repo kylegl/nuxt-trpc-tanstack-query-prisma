@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const { isLoading, status, data: posts } = useListPosts()
+const { isLoading, status, data: posts, suspense } = useListPosts()
+
+onServerPrefetch(async () => { await suspense() })
 </script>
 
 <template>
