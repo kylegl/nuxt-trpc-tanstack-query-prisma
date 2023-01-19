@@ -41,6 +41,6 @@ export function useDeletePost() {
 
   return useMutation({
     mutationFn,
-    onSuccess: () => vueQueryClient.invalidateQueries({ queryKey: ['post', 'delete'] }),
+    onSuccess: () => vueQueryClient.invalidateQueries({ queryKey: ['post', 'list'] }),
   })
 }

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div>
+  <div flex="~ col" justify-center items-center>
     <Logos mb-6 />
     <Suspense>
       <PageView />
@@ -14,7 +14,7 @@
       </template>
     </Suspense>
     <div flex="~ col" items-center justify-center gap2>
-      <AddPost />
+      <AddPost p4 rounded-md border="~ rounded gray-200 dark:gray-700" />
       <PostsContainer />
     </div>
   </div>

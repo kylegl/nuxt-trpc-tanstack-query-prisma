@@ -3,7 +3,7 @@ import { prisma } from '~~/server/prisma/prisma'
 import { publicProcedure, router } from '~~/server/trpc/trpc'
 
 export const createPostInputShape = z.object({
-  title: z.string(),
+  title: z.string().optional(),
   content: z.string(),
 })
 export type CreatePostInput = z.infer<typeof createPostInputShape>

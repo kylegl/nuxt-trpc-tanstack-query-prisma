@@ -1,5 +1,12 @@
 <script setup lang="ts">
-const props = defineProps<{ modelValue?: string; placeholder?: string }>()
+interface Props {
+  modelValue?: string
+  placeholder?: string
+  rows?: number
+}
+const props = withDefaults(defineProps<Props>(), {
+  rows: 2,
+})
 const emit = defineEmits(['update:modelValue', 'submit'])
 
 const val = useVModel(props, 'modelValue', emit)

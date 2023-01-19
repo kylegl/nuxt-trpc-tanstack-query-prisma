@@ -1,25 +1,29 @@
 <script setup lang="ts">
-const addPost = useAddPost()
+const { error, mutate, reset, isSuccess } = useAddPost()
 const postTitle = $ref<string>()
-const postContent = $ref<string>()
+let postContent = $ref<string>()
 
-function submitPost() {
+async function submitPost() {
   if (typeof postTitle !== 'string' && typeof postContent !== 'string')
     return
 
-  const res = addPost.mutate({ title: postTitle, content: postContent })
-  console.log('res', res)
+  mutate({ title: postTitle, content: postContent })
+  postContent = ''
 }
 </script>
 
 <template>
-  <div flex="~ col" gap2 border="~ rounded gray-200 dark:gray-700" p2>
-    <label>Title</label>
-    <InputEntry v-model="postTitle" />
-    <label>Content</label>
-    <InputEntry v-model="postContent" />
-    <Btn m-auto @click="submitPost">
-      Post
-    </Btn>
+  <div
+    flex gap2 min-w-md max-w-xl
+    bg-transparent
+  >
+    <Icon i-carbon:user-avatar-filled text-3xl text-teal-600 />
+
+    <div flex="~ col" gap2 w-full>
+      <TextEntry v-model="postContent" placeholder="What's happening?" @submit="submitPost" />
+      <Btn my-auto ml-auto @click="submitPost">
+        Tweet
+      </Btn>
+    </div>
   </div>
 </template>
