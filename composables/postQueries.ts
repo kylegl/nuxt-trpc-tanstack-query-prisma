@@ -43,7 +43,6 @@ export function useListPosts() {
 
   const queryFn = async () => {
     const data = await $client.post.list.query()
-    console.log('fetch data', data)
     return data
   }
   return useQuery({ queryKey: ['post', 'list'], queryFn })
