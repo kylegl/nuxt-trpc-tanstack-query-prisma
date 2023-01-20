@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div flex="~ col" gap4 justify-center items-center>
+  <div flex="~ col" gap4 justify-center items-center text-gray>
     <Logos mb-6 />
     <Suspense>
       <PageView />
