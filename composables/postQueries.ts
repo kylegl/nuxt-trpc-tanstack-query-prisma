@@ -26,7 +26,11 @@ export function useAddPost() {
         ...input,
       }
 
-      vueQueryClient.setQueryData(['post', 'list'], old => ({ data: [...old.data.value, newPost] }))
+      vueQueryClient.setQueryData(['post', 'list'],
+        (old) => {
+          return old ? [newPost, ...old] : undefined
+        },
+      )
 
       return { previousPosts }
     },
@@ -37,7 +41,10 @@ export function useAddPost() {
 export function useListPosts() {
   const { $client } = useNuxtApp()
 
-  const queryFn = async () => useAsyncData<ListPostsOutput, ErrorOutput>(() => $client.post.list.query())
+  const queryFn = async () => {
+    const data = await $client.post.list.query()
+    return data
+  }
   return useQuery({ queryKey: ['post', 'list'], queryFn })
 }
 
@@ -59,8 +66,7 @@ export function useDeletePost() {
       const previousPosts = vueQueryClient.getQueryData(['post', 'list'])
 
       vueQueryClient.setQueryData(['post', 'list'], (old) => {
-        const filteredData = old.data.value.filter(post => post.id !== id)
-        return { data: filteredData }
+        return old.filter(post => post.id !== id)
       })
 
       return { previousPosts }
