@@ -3,6 +3,8 @@ lockfileVersion: 5.4
 specifiers:
   '@antfu/eslint-config': ^0.30.1
   '@iconify-json/carbon': ^1.1.10
+  '@iconify-json/logos': ^1.1.22
+  '@iconify-json/skill-icons': ^1.1.0
   '@iconify-json/twemoji': ^1.1.5
   '@nuxtjs/color-mode': ^3.2.0
   '@pinia/nuxt': ^0.4.3
@@ -37,6 +39,8 @@ dependencies:
 devDependencies:
   '@antfu/eslint-config': 0.30.1_e3uo4sehh4zr4i6m57mkkxxv7y
   '@iconify-json/carbon': 1.1.10
+  '@iconify-json/logos': 1.1.22
+  '@iconify-json/skill-icons': 1.1.0
   '@iconify-json/twemoji': 1.1.5
   '@nuxtjs/color-mode': 3.2.0
   '@pinia/nuxt': 0.4.3_typescript@4.9.3
@@ -906,6 +910,18 @@ packages:
 
   /@iconify-json/carbon/1.1.10:
     resolution: {integrity: sha512-k3/28wk+2CklUPdKBXWhPHQxquvLGiPYk1s6UWdQYR3YtneHRMuCp+0zc9yNjHYBzoSylMIECO0UPH+SdccguA==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/logos/1.1.22:
+    resolution: {integrity: sha512-vlkTWWWzQ9eghWaoq2D51jPDJBhn6yvjr4TvRJxVPisIm0yDkvt2l4yq/QPonZBSaKuEXga5omDulJHIcSVR3A==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/skill-icons/1.1.0:
+    resolution: {integrity: sha512-rLPbOH4WEvDL5enhvmUlhRbaUxwCqsg5M8QnIHTFc6Cyydi7wjqG94idUhQiqDq2BtoBb6aYVLgHCvulnuqMxw==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true

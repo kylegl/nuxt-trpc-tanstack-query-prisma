@@ -5,7 +5,7 @@ let postContent = $ref<string>()
 const unfocus = $ref(false)
 
 async function submitPost() {
-  if (typeof postTitle !== 'string' && typeof postContent !== 'string')
+  if (typeof postTitle !== 'string' && !postContent)
     return
 
   mutate({ title: postTitle, content: postContent })
