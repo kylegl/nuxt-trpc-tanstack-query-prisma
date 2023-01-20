@@ -6,9 +6,9 @@ onServerPrefetch(async () => { await suspense() })
 
 <template>
   <div flex="~ col">
-    <div v-if="Array.isArray(posts?.data)" flex="~ col" items-center gap1>
+    <div v-if="Array.isArray(posts)" flex="~ col" items-center gap1>
       <Post
-        v-for="post in posts?.data"
+        v-for="post in posts"
         :id="post.id"
         :key="post.id"
         :title="post.title"
